@@ -7,11 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link rel="stylesheet" href="styles.css">      
+    <link rel="stylesheet" href="styles.css">       
 </head>
 <body>
-     <header>
+    <header>
         <div class="logo">
             <a href="index.html"><img src="img/logo.png" alt="Logo Bruma de Londres"></a>
         </div>
@@ -38,6 +37,18 @@
             </div>
         </section>
 
+        ---
+
+        <section id="productos" class="productos-seccion">
+            <div class="contenido-interno">
+                <h2>Nuestros Productos Destacados</h2>
+                <div class="productos-container" id="productos-container">
+                    </div>
+            </div>
+        </section>
+
+        ---
+
         <section class="about">
             <div class="contenido-interno">
                 <h2>Nuestra Pasión por el Té</h2>
@@ -45,9 +56,24 @@
                 <p>Desde tés clásicos hasta mezclas exóticas, nuestra misión es traer la diversidad y la riqueza del té directamente a tu hogar.</p>
             </div>
         </section>
-        </main>
-        <script src="script.js"></script>
-    </body>
+
+        <div class="cart-overlay" id="cart-overlay">
+            <div class="cart-sidebar" id="cart-sidebar">
+                <h3>Tu Carrito <span class="close-cart" id="close-cart">&times;</span></h3>
+                <div id="cart-items-container" class="cart-items-container">
+                    <p style="text-align: center; font-size: 1.6rem; color: var(--medium-grey);">El carrito está vacío.</p>
+                </div>
+                <div class="cart-summary">
+                    <p>Total: <span id="cart-total">$0.00</span></p>
+                    <button class="btn" id="checkout-btn">Finalizar Compra</button>
+                    <button class="btn clear-cart-btn" id="clear-cart-btn">Vaciar Carrito</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script> 
+
     <footer>
         <div class="contenido-interno">
             <div class="footer-links">
@@ -77,5 +103,4 @@
         </div>
     </footer>
 </body>
-</html>
 </html>
