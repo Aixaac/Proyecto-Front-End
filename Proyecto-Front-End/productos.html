@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruma de Londres - Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">      
+</head>
+<body>
+     <header>
+        <div class="logo">
+            <a href="index.html"><img src="img/logo.png" alt="Logo Bruma de Londres"></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="productos.html">PRODUCTOS</a></li>
+                <li><a href="resenas.html">RESEÑAS</a></li>
+                <li><a href="contacto.html">CONTACTO</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <main>
+    <section id="productos" class="productos-seccion">
+        <div class="contenido-interno">
+            <h2>Nuestros Productos Destacados</h2>
+            <div class="productos-container" id="productos-container-static">
+                <div class="producto-card">
+                    <img src="img/teverde.webp" alt="Té Verde Premium">
+                    <h3>Té Verde Premium</h3>
+                    <p>Un té verde vibrante y energizante, perfecto para tu ritual diario.</p>
+                    <span>$1500</span>
+                    <button class="add-to-cart-btn"
+                            data-id="101"
+                            data-title="Té Verde Premium"
+                            data-price="1500.00"
+                            data-image="img/teverde.webp">
+                        Añadir al carrito
+                    </button>
+                </div>
+
+                <div class="producto-card">
+                    <img src="img/terojo.webp" alt="Té Rojo">
+                    <h3>Té Rojo (Pu-erh)</h3>
+                    <p>Su proceso especial de fermentación y envejecimiento le da un sabor y propiedades únicas.</p>
+                    <span>$2000</span>
+                    <button class="add-to-cart-btn"
+                            data-id="102"
+                            data-title="Té Rojo (Pu-erh)"
+                            data-price="2000.00"
+                            data-image="img/terojo.webp">
+                        Añadir al carrito
+                    </button>
+                </div>
+
+                <div class="producto-card">
+                    <img src="img/teoolong.png" alt="Té Oolong">
+                    <h3>Té Oolong (Té Azul)</h3>
+                    <p>Delicado y sutil, una experiencia de sabor puro y refinado.</p>
+                    <span>$1800</span>
+                    <button class="add-to-cart-btn"
+                            data-id="103"
+                            data-title="Té Oolong (Té Azul)"
+                            data-price="1800.00"
+                            data-image="img/teoolong.png">
+                        Añadir al carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-sidebar" id="cart-sidebar">
+            <h3>Tu Carrito <span class="close-cart" id="close-cart">&times;</span></h3>
+            <div id="cart-items-container" class="cart-items-container">
+                <p style="text-align: center; font-size: 1.6rem; color: var(--medium-grey);">El carrito está vacío.</p>
+            </div>
+            <div class="cart-summary">
+                <p>Total: <span id="cart-total">$0.00</span></p>
+                <button class="btn" id="checkout-btn">Finalizar Compra</button>
+                <button class="btn clear-cart-btn" id="clear-cart-btn">Vaciar Carrito</button>
+            </div>
+        </div>
+    </div>
+</main>
+    <script src="script.js"></script>
+    </body>
+    <footer>
+        <div class="contenido-interno">
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="resenas.html">Reseñas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contáctanos</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Av.Corrientes 1234, C.A.B.A.</p>
+                <p><i class="fas fa-phone"></i> +11 8546 7412</p>
+                <p><i class="fas fa-envelope"></i> brumadelondres@gmail.com</p>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="creditos">
+            <p>&copy; 2025 Bruma de Londres. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
+</html>
