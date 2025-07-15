@@ -12,55 +12,48 @@ document.addEventListener('DOMContentLoaded', () => {
     // Carrito de compras: se inicializa vacío o se carga desde localStorage
     let cart = JSON.parse(localStorage.getItem('brumaDeLondresCart')) || [];
 
-    // --- DATOS SIMULADOS DE TÉS ---
-    // Aquí definimos nuestros productos de té como un array de objetos
+    
     const teaProducts = [
         {
             id: 1,
             title: "Té Verde Matcha Orgánico",
             price: 2500.00,
-            description: "Matcha premium ceremonial, cultivado a la sombra para un sabor umami intenso y energía sostenida.",
-            // Ruta de imagen actualizada con nombre de archivo seguro
+            description: "Matcha premium ceremonial, con sabor umami intenso.",
             image: "img/te-verde-matcha.webp" 
         },
         {
             id: 2,
             title: "Té Negro Earl Grey Clásico",
             price: 1850.00,
-            description: "Una mezcla robusta de té negro con el aroma cítrico distintivo de la bergamota.",
-            // Ruta de imagen actualizada con nombre de archivo seguro
+            description: "Mezcla de té negro con el aroma cítrico de la bergamota.",
             image: "img/te-negro-earl-grey.webp" 
         },
         {
             id: 3,
             title: "Té Blanco Pai Mu Tan",
             price: 2200.00,
-            description: "Delicado té blanco con notas florales y frutales, recolectado de brotes jóvenes.",
-            // Ruta de imagen actualizada con nombre de archivo seguro
+            description: "Delicado té blanco con notas florales y frutales.",
             image: "img/te-blanco-pai-mu-tan.webp" 
         },
         {
             id: 4,
             title: "Té de Hierbas Menta y Jengibre",
             price: 1275.00,
-            description: "Una infusión refrescante y reconfortante, ideal para la digestión y el bienestar.",
-            // Ruta de imagen actualizada con nombre de archivo seguro
+            description: "Una infusión refrescante y descongestiva.",
             image: "img/menta-y-jengibre.webp" 
         },
         {
             id: 5,
-            title: "Té Rojo",
+            title: "Té Rojo Pu-erh",
             price: 1600.00,
-            description: "Té con un proceso especial de fermentaciòn y envejecimiento le da un sabor y propiedades ùnicas.",
-            // Ruta de imagen actualizada con nombre de archivo seguro
+            description: "Su fermentaciòn distingue su sabor terroso y profundo.",
             image: "img/te-rojo.webp" 
         },
         {
             id: 6,
             title: "Té Oolong Tie Guan Yin",
             price: 2800.00,
-            description: "Un oolong floral y complejo, con un perfil de sabor que evoluciona con cada infusión.",
-            // Ruta de imagen actualizada con nombre de archivo seguro
+            description: "Té dragón negro, con notas florales, cremosas y afrutadas.",
             image: "img/te-oolong-tie-guan-yin.webp" 
         }
     ];
@@ -203,9 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Actualiza la cantidad de un producto en el carrito.
-     * @param {number} productId - ID del producto.
-     * @param {number} change 
-     * @param {boolean} isExactQuantity 
+       @param {number} productId - ID del producto.
+       @param {number} change 
+       @param {boolean} isExactQuantity 
      */
     const updateQuantity = (productId, change, isExactQuantity = false) => {
         const itemIndex = cart.findIndex(item => item.id === productId);
@@ -251,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Funciones para configurar Event Listeners de botones "Añadir al Carrito" ---
     /**
-     * @param {Event} e 
+       @param {Event} e 
      */
     const handleAddToCartClick = (e) => {
         const productData = {
@@ -413,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Mejora de accesibilidad: Cerrar carrito con la tecla 'Escape'
+    // Cerrar carrito con la tecla 'Escape'
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && cartOverlay && cartOverlay.classList.contains('active')) {
             closeCart();

@@ -109,11 +109,11 @@ header .nav-links a:hover {
     justify-content: center; /* Centrar el contenido horizontalmente */
     min-height: calc(100vh - 7rem); /* 100% de la altura de la ventana - altura del header */
     background: url(img/té.png) no-repeat center center/cover; /* Centrar y cubrir */
-    background-attachment: fixed; /* Imagen de fondo fija */
-    padding-top: 7rem; /* Empujar el contenido hacia abajo para que no lo tape el header */
+    background-attachment: fixed; 
+    padding-top: 7rem; 
     text-align: center;
-    color: var(--white); /* Color de texto para el banner */
-    position: relative; /* Para el overlay */
+    color: var(--white); 
+    position: relative; 
     z-index: 1; /* Para que el contenido esté sobre el overlay */
 }
 
@@ -264,7 +264,6 @@ header .nav-links a:hover {
 
 .reseñas-grid {
     display: grid;
-    /* Columnas: crea tantas columnas como quepan, con un mínimo de 300px y un reparto equitativo */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 3rem; /* Espacio entre las reseñas */
     padding: 0 2rem; /* Padding interno del contenedor */
@@ -287,7 +286,7 @@ header .nav-links a:hover {
     line-height: 1.6;
     margin-bottom: 2rem;
     font-style: italic;
-    flex-grow: 1; /* Permite que el texto de la reseña ocupe más espacio */
+    flex-grow: 1; 
 }
 
 .reseña-item h4 {
@@ -295,7 +294,7 @@ header .nav-links a:hover {
     color: var(--violet);
     font-weight: 600;
     text-align: right;
-    margin-top: auto; /* Empuja el nombre al final */
+    margin-top: auto; 
 }
 
 
@@ -326,7 +325,7 @@ header .nav-links a:hover {
     padding-bottom: 56.25%; /* Relación de aspecto 16:9 (altura / ancho) */
     height: 0;
     overflow: hidden;
-    max-width: 1000px; /* Limita el ancho del video */
+    max-width: 1000px; 
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -357,12 +356,12 @@ header .nav-links a:hover {
 
 .contacto-content {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos salten de línea */
+    flex-wrap: wrap; 
     justify-content: center;
-    gap: 4rem; /* Espacio entre el formulario y la info */
+    gap: 4rem; 
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 2rem; /* Padding interno */
+    padding: 0 2rem; 
 }
 
 .contacto-form,
@@ -573,8 +572,8 @@ footer .footer-social a:hover {
     font-size: 1.2rem;
     padding: 0.2rem 0.6rem;
     border-radius: 50%;
-    line-height: 1; /* Asegura que el texto esté centrado verticalmente */
-    min-width: 20px; /* Ancho mínimo para un solo dígito */
+    line-height: 1; 
+    min-width: 20px; 
     text-align: center;
     font-weight: 600;
 }
@@ -587,10 +586,10 @@ footer .footer-social a:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     display: flex;
-    justify-content: flex-end; /* Empuja la barra lateral hacia la derecha */
-    z-index: 2000; /* Por encima de todo lo demás */
-    visibility: hidden; /* Oculto por defecto */
-    opacity: 0; /* Oculto por defecto */
+    justify-content: flex-end;
+    z-index: 2000; 
+    visibility: hidden; 
+    opacity: 0; 
     transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
@@ -708,7 +707,6 @@ footer .footer-social a:hover {
     border-radius: 4px;
     margin: 0 0.8rem;
     padding: 0.5rem;
-    -moz-appearance: textfield; /* Oculta flechas para Firefox */
 }
 
 /* Oculta flechas de entrada numérica para Chrome, Safari, Edge */
@@ -820,13 +818,13 @@ footer .footer-social a:hover {
     footer .footer-contact,
     footer .footer-social {
         max-width: 300px; /* Ancho máximo para los ítems apilados */
-        text-align: center; /* Centrar texto */
+        text-align: center; 
     }
     footer .footer-contact i {
         margin-right: 0.8rem;
     }
     footer .footer-contact p {
-        justify-content: center; /* Centrar íconos y texto */
+        justify-content: center; 
     }
 }
 
