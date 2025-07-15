@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruma de Londres - Inicio</title>
+    <title>Bruma de Londres - Contacto</title> <meta name="description" content="Contáctanos en Bruma de Londres para preguntas, sugerencias o comentarios sobre nuestra selección de tés.">
+    <meta name="keywords" content="contacto, té, tienda de té, bruma de londres, atención al cliente">
+    <meta name="author" content="Tu Nombre o Bruma de Londres">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link rel="stylesheet" href="styles.css">      
+    <link rel="stylesheet" href="styles.css">       
 </head>
 <body>
-     <header>
+    <header>
         <div class="logo">
-            <a href="index.html"><img src="img/logo.png" alt="Logo Bruma de Londres"></a>
+            <a href="index.html"><img src="img/logo.png" alt="Logo Bruma de Londres - Tienda de té"></a>
         </div>
         <nav>
             <ul class="nav-links">
@@ -24,42 +26,85 @@
             </ul>
         </nav>
         <div class="cart-icon" id="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-shopping-cart" aria-label="Abrir carrito de compras"></i>
             <span id="cart-counter" class="cart-counter">0</span>
         </div>
     </header>
 
     <main>
-    <section id="contacto" class="contacto-seccion">
-        <div class="contenido-interno">
-            <h2>Contáctanos</h2>
-            <div class="contacto-content">
-                <form class="contacto-form" id="contact-form" method="POST">
-                    <p>Envíanos tus preguntas, sugerencias o comentarios. ¡Nos encantaría saber de ti!</p>
-                    <input type="text" id="name" name="nombre" placeholder="Tu Nombre" required>
-                    <input type="email" id="email" name="email" placeholder="Tu Email" required>
-                    <input type="text" id="subject" name="asunto" placeholder="Asunto" required>
-                    <textarea id="message" name="mensaje" placeholder="Tu Mensaje" rows="5" required></textarea>
-                    <button type="submit" class="btn">Enviar Mensaje</button>
-                    <div id="form-message" style="margin-top: 1.5rem; font-size: 1.6rem;"></div>
-                </form>
+        <section id="contacto" class="contacto-seccion">
+            <div class="contenido-interno">
+                <h2>Contáctanos</h2>
+                <div class="contacto-content">
+                    <form class="contacto-form" id="contact-form" method="POST">
+                        <p>Envíanos tus preguntas, sugerencias o comentarios. ¡Nos encantaría saber de ti!</p>
+                        <input type="text" id="name" name="nombre" placeholder="Tu Nombre" required>
+                        <input type="email" id="email" name="email" placeholder="Tu Email" required>
+                        <input type="text" id="subject" name="asunto" placeholder="Asunto" required>
+                        <textarea id="message" name="mensaje" placeholder="Tu Mensaje" rows="5" required></textarea>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                        <div id="form-message" style="margin-top: 1.5rem; font-size: 1.6rem;"></div>
+                    </form>
 
-                <div class="contacto-info">
-                    <h3>Encuéntranos</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. Corrientes 1234, C.A.B.A.</p>
-                    <p><i class="fas fa-phone"></i> Teléfono: +11 8546 7412</p>
-                    <p><i class="fas fa-envelope"></i> Email: brumadelondres@gmail.com</p>
-                    <div class="redes-sociales">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <div class="contacto-info">
+                        <h3>Encuéntranos</h3>
+                        <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av. Corrientes 1234, C.A.B.A.</p>
+                        <p><i class="fas fa-phone" aria-hidden="true"></i> Teléfono: +11 8546 7412</p>
+                        <p><i class="fas fa-envelope" aria-hidden="true"></i> Email: brumadelondres@gmail.com</p>
+                        <div class="redes-sociales">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <div class="cart-overlay" id="cart-overlay">
+            <div class="cart-sidebar" id="cart-sidebar" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+                <h3 id="cart-title">Tu Carrito <span class="close-cart" id="close-cart" role="button" aria-label="Cerrar carrito">&times;</span></h3>
+                <div id="cart-items-container" class="cart-items-container">
+                    <p style="text-align: center; font-size: 1.6rem; color: var(--medium-grey);">El carrito está vacío.</p>
+                </div>
+                <div class="cart-summary">
+                    <p>Total: <span id="cart-total">$0.00</span></p>
+                    <button class="btn" id="checkout-btn">Finalizar Compra</button>
+                    <button class="btn clear-cart-btn" id="clear-cart-btn">Vaciar Carrito</button>
+                </div>
+            </div>
         </div>
-    </section>
-</main>
+    </main>
+
     <script src="script.js"></script>
+
+    <footer>
+        <div class="contenido-interno">
+            <div class="footer-links">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="resenas.html">Reseñas</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contáctanos</h3>
+                <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Av.Corrientes 1234, C.A.B.A.</p>
+                <p><i class="fas fa-phone" aria-hidden="true"></i> +11 8546 7412</p>
+                <p><i class="fas fa-envelope" aria-hidden="true"></i> brumadelondres@gmail.com</p>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <a href="#" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Síguenos en Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Síguenos en Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="creditos">
+            <p>&copy; 2025 Bruma de Londres. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 </body>
-</html>
 </html>

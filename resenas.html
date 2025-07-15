@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bruma de Londres - Inicio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Bruma de Londres - Reseñas</title> <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <link rel="stylesheet" href="styles.css">      
+    <link rel="stylesheet" href="styles.css">       
 </head>
 <body>
-     <header>
+    <header>
         <div class="logo">
             <a href="index.html"><img src="img/logo.png" alt="Logo Bruma de Londres"></a>
         </div>
@@ -30,7 +28,7 @@
     </header>
 
     <main>
-    <section id="resenas" class="resenas-seccion">
+        <section id="resenas" class="resenas-seccion">
             <div class="contenido-interno">
                 <h2>Lo que dicen nuestros clientes</h2>
                 <div class="reseñas-grid">
@@ -52,18 +50,33 @@
 
         <section class="multimedia">
             <div class="contenido-interno">
-                <h2>Como preparar nuestros tès</h2>
+                <h2>Como preparar nuestros tés</h2>
                 <div class="video-responsive">
                     <video controls autoplay muted loop>
                         <source src="img/Prepara el Té Negro perfecto I Tea Shop.mp4" type="video/mp4">
                     </video>
                 </div>
-                <p>Convièrtete en un experto y disfruta nuestras exclusivas hojas de tè.</p>
+                <p>Conviértete en un experto y disfruta nuestras exclusivas hojas de té.</p>
             </div>
-        </section>    
+        </section>     
+
+        <div class="cart-overlay" id="cart-overlay">
+            <div class="cart-sidebar" id="cart-sidebar" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+                <h3 id="cart-title">Tu Carrito <span class="close-cart" id="close-cart" role="button" aria-label="Cerrar carrito">&times;</span></h3>
+                <div id="cart-items-container" class="cart-items-container">
+                    <p style="text-align: center; font-size: 1.6rem; color: var(--medium-grey);">El carrito está vacío.</p>
+                </div>
+                <div class="cart-summary">
+                    <p>Total: <span id="cart-total">$0.00</span></p>
+                    <button class="btn" id="checkout-btn">Finalizar Compra</button>
+                    <button class="btn clear-cart-btn" id="clear-cart-btn">Vaciar Carrito</button>
+                </div>
+            </div>
+        </div>
     </main>
+
     <script src="script.js"></script>
-    </body>
+
     <footer>
         <div class="contenido-interno">
             <div class="footer-links">
@@ -93,5 +106,4 @@
         </div>
     </footer>
 </body>
-</html>
 </html>
