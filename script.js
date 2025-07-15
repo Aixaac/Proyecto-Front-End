@@ -12,6 +12,59 @@ document.addEventListener('DOMContentLoaded', () => {
     // Carrito de compras: se inicializa vacío o se carga desde localStorage
     let cart = JSON.parse(localStorage.getItem('brumaDeLondresCart')) || [];
 
+    // --- DATOS SIMULADOS DE TÉS ---
+    // Aquí definimos nuestros productos de té como un array de objetos
+    const teaProducts = [
+        {
+            id: 1,
+            title: "Té Verde Matcha Orgánico",
+            price: 2500.00,
+            description: "Matcha premium ceremonial, cultivado a la sombra para un sabor umami intenso y energía sostenida.",
+            // Ruta de imagen actualizada con nombre de archivo seguro
+            image: "img/te-verde-matcha.webp" 
+        },
+        {
+            id: 2,
+            title: "Té Negro Earl Grey Clásico",
+            price: 1850.00,
+            description: "Una mezcla robusta de té negro con el aroma cítrico distintivo de la bergamota.",
+            // Ruta de imagen actualizada con nombre de archivo seguro
+            image: "img/te-negro-earl-grey.webp" 
+        },
+        {
+            id: 3,
+            title: "Té Blanco Pai Mu Tan",
+            price: 2200.00,
+            description: "Delicado té blanco con notas florales y frutales, recolectado de brotes jóvenes.",
+            // Ruta de imagen actualizada con nombre de archivo seguro
+            image: "img/te-blanco-pai-mu-tan.webp" 
+        },
+        {
+            id: 4,
+            title: "Té de Hierbas Menta y Jengibre",
+            price: 1275.00,
+            description: "Una infusión refrescante y reconfortante, ideal para la digestión y el bienestar.",
+            // Ruta de imagen actualizada con nombre de archivo seguro
+            image: "img/menta-y-jengibre.webp" 
+        },
+        {
+            id: 5,
+            title: "Té Rojo",
+            price: 1600.00,
+            description: "Té con un proceso especial de fermentaciòn y envejecimiento le da un sabor y propiedades ùnicas.",
+            // Ruta de imagen actualizada con nombre de archivo seguro
+            image: "img/te-rojo.webp" 
+        },
+        {
+            id: 6,
+            title: "Té Oolong Tie Guan Yin",
+            price: 2800.00,
+            description: "Un oolong floral y complejo, con un perfil de sabor que evoluciona con cada infusión.",
+            // Ruta de imagen actualizada con nombre de archivo seguro
+            image: "img/te-oolong-tie-guan-yin.webp" 
+        }
+    ];
+
     // --- Funciones del Carrito de Compras ---
 
     /**
@@ -26,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const updateCartCounter = () => {
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        if (cartCounter) { // Asegurarse de que el elemento exista
+        if (cartCounter) { 
             cartCounter.textContent = totalItems;
         }
     };
@@ -37,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const openCart = () => {
         if (cartOverlay) {
             cartOverlay.classList.add('active');
-            renderCart(); // Renderiza el carrito cada vez que se abre
+            renderCart(); 
         }
     };
 
@@ -50,11 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    /**
-     * Renderiza los productos en la barra lateral del carrito.
-     */
+    
     const renderCart = () => {
-        if (!cartItemsContainer) return; // Salir si no estamos en una página con carrito
+        if (!cartItemsContainer) return;
 
         cartItemsContainer.innerHTML = ''; // Limpiar el contenedor antes de renderizar
         let grandTotal = 0;
@@ -115,12 +166,11 @@ document.addEventListener('DOMContentLoaded', () => {
             input.addEventListener('change', (e) => {
                 const id = parseInt(e.target.dataset.id);
                 const newQuantity = parseInt(e.target.value);
-                // Asegurarse de que la cantidad no sea menor que 1
                 if (isNaN(newQuantity) || newQuantity < 1) {
-                    e.target.value = 1; // Restablecer a 1 si el usuario ingresa algo inválido
-                    updateQuantity(id, 1, true); // Actualizar directamente a 1
+                    e.target.value = 1; 
+                    updateQuantity(id, 1, true); 
                 } else {
-                    updateQuantity(id, newQuantity, true); // Actualizar directamente a la cantidad
+                    updateQuantity(id, newQuantity, true); 
                 }
             });
         });
@@ -135,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * Agrega un producto al carrito.
-      @param {Object} product - El objeto producto a añadir.
-    */
+     * @param {Object} product - El objeto producto a añadir.
+     */
     const addToCart = (product) => {
         const existingItem = cart.find(item => item.id === product.id);
 
@@ -147,22 +197,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         saveCart();
         updateCartCounter();
-        openCart(); // Abre el carrito automáticamente al añadir
+        openCart(); 
         console.log('Producto añadido al carrito:', product.title);
     };
 
     /**
      * Actualiza la cantidad de un producto en el carrito.
-     @param {number} productId - ID del producto.
-     @param {number} change - Cantidad a sumar/restar (ej: 1 o -1) o la cantidad exacta.
-     @param {boolean} isExactQuantity
+     * @param {number} productId - ID del producto.
+     * @param {number} change 
+     * @param {boolean} isExactQuantity 
      */
     const updateQuantity = (productId, change, isExactQuantity = false) => {
         const itemIndex = cart.findIndex(item => item.id === productId);
 
         if (itemIndex > -1) {
             if (isExactQuantity) {
-                cart[itemIndex].quantity = Math.max(1, change); // Asegura que no sea menos de 1
+                cart[itemIndex].quantity = Math.max(1, change); 
             } else {
                 cart[itemIndex].quantity += change;
             }
@@ -185,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         saveCart();
         updateCartCounter();
         renderCart();
+        console.log('Producto eliminado del carrito:', productId);
     };
 
     /**
@@ -198,33 +249,47 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Carrito vaciado.');
     };
 
-    //---Lógica de Carga de Productos (para `index.html` y `productos.html`)---
-
-    // Este bloque se ejecuta si estás en la página de productos o en la página de inicio
-    if (window.location.pathname.includes('productos.html') || window.location.pathname.includes('index.html')) {
-        const productosContainer = document.getElementById('productos-container'); 
-        const fetchProducts = async () => {
-            try {
-                const response = await fetch('https://fakestoreapi.com/products?limit=6'); // Obtener 6 productos
-                const products = await response.json();
-                displayProducts(products);
-            } catch (error) {
-                console.error('Error al obtener los productos:', error);
-                if (productosContainer) {
-                    productosContainer.innerHTML = '<p style="font-size: 2rem; color: red; text-align: center;">No pudimos cargar los productos en este momento. Inténtalo de nuevo más tarde.</p>';
-                }
-            }
+    // --- Funciones para configurar Event Listeners de botones "Añadir al Carrito" ---
+    /**
+     * @param {Event} e 
+     */
+    const handleAddToCartClick = (e) => {
+        const productData = {
+            id: parseInt(e.target.dataset.id),
+            title: e.target.dataset.title,
+            price: parseFloat(e.target.dataset.price),
+            image: e.target.dataset.image
         };
+        addToCart(productData);
+    };
+
+    
+    const setupAddToCartButtons = () => {
+        const addButtons = document.querySelectorAll('.add-to-cart-btn');
+        addButtons.forEach(button => {
+            // Eliminar listener previo para evitar duplicados si la función se llama varias veces
+            button.removeEventListener('click', handleAddToCartClick);
+            // Añadir el listener
+            button.addEventListener('click', handleAddToCartClick);
+        });
+    };
+
+    // --- Lógica de Carga de Productos (para `index.html` y `productos.html`) ---
+    if (window.location.pathname.includes('productos.html') || window.location.pathname.includes('index.html')) {
+        // Obtenemos el único contenedor de productos
+        const productosContainer = document.getElementById('productos-container'); 
 
         /**
-         * Muestra los productos obtenidos de la API en la página.
-         * @param {Array} products - Array de objetos producto.
+         * Muestra los productos definidos en `teaProducts` en la página.
          */
-        const displayProducts = (products) => {
-            if (!productosContainer) return;
+        const displayTeas = () => {
+            if (!productosContainer) {
+                console.error('El contenedor de productos no se encontró.');
+                return;
+            }
 
             productosContainer.innerHTML = ''; // Limpiar cualquier contenido previo
-            products.forEach(product => {
+            teaProducts.forEach(product => {
                 const productCard = document.createElement('div');
                 productCard.classList.add('producto-card');
                 productCard.innerHTML = `
@@ -242,25 +307,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 productosContainer.appendChild(productCard);
             });
 
-            // Añadir event listeners a los botones "Añadir al Carrito"
-            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const productData = {
-                        id: parseInt(e.target.dataset.id),
-                        title: e.target.dataset.title,
-                        price: parseFloat(e.target.dataset.price),
-                        image: e.target.dataset.image
-                    };
-                    addToCart(productData);
-                });
-            });
+            // Llama a la función para configurar los listeners después de renderizar productos
+            setupAddToCartButtons();
         };
 
-        fetchProducts(); // Cargar productos al cargar la página de productos o index
+        displayTeas(); // Cargar nuestros tés al cargar la página de productos o index
     }
 
-    //---Lógica del Formulario de Contacto (para `contacto.html`)---
-
+    // --- Lógica del Formulario de Contacto (para `contacto.html`) ---
     if (window.location.pathname.includes('contacto.html')) {
         const contactForm = document.getElementById('contact-form');
         const formMessage = document.getElementById('form-message');
@@ -305,8 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //---Lógica del Scroll Suave para Anclas---
-
+    // --- Lógica del Scroll Suave para Anclas ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -327,10 +380,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    //---Inicialización y Event Listeners Globales---
-
+    // --- Inicialización y Event Listeners Globales ---
     updateCartCounter(); // Actualiza el contador al cargar cualquier página
 
+    // Event listeners para el carrito
     if (cartIcon) {
         cartIcon.addEventListener('click', openCart);
     }
@@ -367,4 +420,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-}); 
+    setupAddToCartButtons(); 
+});
